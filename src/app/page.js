@@ -1,9 +1,19 @@
-// Temporary page. The real home page (hero, features, redirect) is built in Phase 2.
-export default function HomePage() {
+import { redirectIfAuthenticated } from '@/lib/auth';
+import Hero from '@/components/home/Hero';
+import FeatureGrid from '@/components/home/FeatureGrid';
+import HowItWorks from '@/components/home/HowItWorks';
+import CtaSection from '@/components/home/CtaSection';
+
+// Server Component. Logged-in users are sent straight to /todos.
+export default async function HomePage() {
+  await redirectIfAuthenticated();
+
   return (
-    <main style={{ padding: 'var(--space-6)' }}>
-      <h1>TODOs Workspace</h1>
-      <p>Phase 1 setup is ready.</p>
+    <main>
+      <Hero />
+      <FeatureGrid />
+      <HowItWorks />
+      <CtaSection />
     </main>
   );
 }
