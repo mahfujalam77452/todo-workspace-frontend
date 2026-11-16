@@ -1,0 +1,164 @@
+.pageHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-3);
+  align-items: end;
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.count {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.hint {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.success {
+  color: var(--color-success);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+/* ---------- Users table: cards on mobile, table from 768px ---------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table,
+.table tbody,
+.table tr,
+.table td {
+  display: block;
+}
+
+/* The header is hidden on mobile, each cell shows its own label instead. */
+.table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.table tr {
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.table td {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  text-align: right;
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.table td:last-child {
+  border-bottom: 0;
+}
+
+.table td:empty {
+  display: none;
+}
+
+.table td::before {
+  content: attr(data-label);
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+.cellControl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 9rem;
+}
+
+@media (min-width: 768px) {
+  .table {
+    display: table;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .table thead {
+    position: static;
+    display: table-header-group;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+  }
+
+  .table tbody {
+    display: table-row-group;
+  }
+
+  .table tr {
+    display: table-row;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .table th,
+  .table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .table th {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .table td,
+  .table td:empty {
+    display: table-cell;
+  }
+
+  .table td::before {
+    display: none;
+  }
+
+  .cellControl {
+    align-items: flex-start;
+  }
+}
