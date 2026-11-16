@@ -20,3 +20,14 @@ export function validateRegister({ name, email, password }) {
   if (password.length < 8) errors.password = 'Password must be at least 8 characters.';
   return errors;
 }
+
+export function validateTodo({ title, description }) {
+  const errors = {};
+  const trimmedTitle = title.trim();
+
+  if (!trimmedTitle) errors.title = 'Enter a title.';
+  else if (trimmedTitle.length > 255) errors.title = 'Title must be 255 characters or fewer.';
+
+  if (description.length > 10000) errors.description = 'Description must be 10,000 characters or fewer.';
+  return errors;
+}

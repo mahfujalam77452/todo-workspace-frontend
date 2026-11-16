@@ -41,3 +41,12 @@ export function getErrorMessage(error) {
   if (SHOW_BACKEND_MESSAGE.includes(error.status) && error.message) return error.message;
   return FRIENDLY_MESSAGES[error.status] || 'Something went wrong. Please try again.';
 }
+
+
+// Used when a todo is created with an assignee, or assigned later.
+export function getAssignErrorMessage(error) {
+  if (error instanceof ApiError && error.status === 403) {
+    return 'You can only assign a todo to someone in your own team.';
+  }
+  return getErrorMessage(error);
+}
