@@ -15,3 +15,9 @@ export function isOverdue(todo) {
   if (!todo.due_date || todo.status === 'completed') return false;
   return new Date(todo.due_date).getTime() < Date.now();
 }
+
+export function formatPercent(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return '0%';
+  return `${Math.round(number * 10) / 10}%`;
+}

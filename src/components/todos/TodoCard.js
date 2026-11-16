@@ -6,13 +6,13 @@ import PriorityBadge from './PriorityBadge';
 import LocalTime from './LocalTime';
 import styles from './Todos.module.css';
 
-export default function TodoCard({ todo }) {
+export default function TodoCard({ todo, basePath = '/todos' }) {
   const overdue = isOverdue(todo);
   const assigneeName = todo.assignee ? todo.assignee.name : 'Unassigned';
 
   return (
     <li className={styles.card}>
-      <Link href={`/todos/${todo.id}`} className={styles.cardLink}>
+      <Link href={`${basePath}/${todo.id}`} className={styles.cardLink}>
         <div className={styles.cardTop}>
           <h3 className={styles.cardTitle}>{todo.title}</h3>
           <PriorityBadge priority={todo.priority} />

@@ -2,6 +2,7 @@
 import { redirect } from 'next/navigation';
 import { backendFetch } from './backend';
 import { ApiError } from './errors';
+import { cache } from 'react';
 
 export function teamMembersTag(teamId) {
   return `team-members-${teamId}`;
@@ -38,4 +39,26 @@ export async function getTeamMembers(teamId) {
 export async function getTeams() {
   const { data } = await safeBackendFetch('/teams', { next: { revalidate: 3600 } });
   return data;
+}
+
+
+// Dashboard data is cached for 30 seconds.
+const DASHBOARD_CACHE = { revalidate: 30 };
+
+// React.cache: the overview is used by two sections of the page, but it is requested only once.
+export const getDashboardOverview = cache(() =>
+  safeBackendFetch('/admin/dashboard/overview', { next: DASHBOARD_CACHE }),
+);
+
+export function getDashboardTeams() {
+  return safeBackendFetch('/admin/dashboard/teams', { next: DASHBOARD_CACHE });
+}
+
+export function getDashboardUsers(search = '') {
+  const query = search ? `?search=${encodeURIComponent(search)}` : '';
+  return safeBackendFetch(`/admin/dashboard/users${query}`, { next: DASHBOARD_CACHE });
+}
+
+export function getDashboardActivity(limit = 15) {
+  return safeBackendFetch(`/admin/dashboard/activity?limit=${limit}`, { next: DASHBOARD_CACHE });
 }
