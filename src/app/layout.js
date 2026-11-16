@@ -1,8 +1,9 @@
 import '@/styles/tokens.css';
+import '@/styles/animations.css';
 import './globals.css';
 
 export const metadata = {
-  title: 'team workspace (todo)',
+  title: { default: 'TODOs Workspace', template: '%s · TODOs Workspace' },
   description: 'Assign, accept and track todos with your team.',
 };
 
