@@ -206,3 +206,37 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+
+/* ---------- Notification bell ---------- */
+.bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+.bell:hover {
+  background: var(--color-surface-muted);
+}
+
+.bellBadge {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 1.25rem;
+  padding: 0 4px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+  color: #fff;
+  background: var(--color-danger);
+  border-radius: var(--radius-full);
+}

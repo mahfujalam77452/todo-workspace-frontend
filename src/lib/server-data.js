@@ -33,3 +33,9 @@ export async function getTeamMembers(teamId) {
   });
   return data;
 }
+
+// Teams are fixed (seeded), so they are cached for 1 hour.
+export async function getTeams() {
+  const { data } = await safeBackendFetch('/teams', { next: { revalidate: 3600 } });
+  return data;
+}
