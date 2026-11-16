@@ -1,4 +1,5 @@
 import { requireAdmin } from '@/lib/auth';
+import ButtonLink from '@/components/ui/ButtonLink';
 
 export const metadata = { title: 'Admin' };
 
@@ -8,7 +9,10 @@ export default async function AdminPage() {
   return (
     <>
       <h1>Admin</h1>
-      <p>The admin tools are built in Phase 4 and 5.</p>
+      <p style={{ margin: 'var(--space-3) 0 var(--space-4)' }}>
+        The workspace dashboard is built in Phase 5.
+      </p>
+      <ButtonLink href="/admin/users">Manage users</ButtonLink>
     </>
   );
 }
