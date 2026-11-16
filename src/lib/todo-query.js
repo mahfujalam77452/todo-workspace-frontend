@@ -12,13 +12,16 @@ export const FILTER_KEYS = [
   'ordering',
 ];
 
+export const ADMIN_USER_FILTER_KEYS = ['role', 'membership__team', 'search'];
+
 function first(value) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-export function pickFilters(searchParams = {}) {
+// Keeps only the allowed keys and drops empty values. Works for any page, pass its own keys.
+export function pickFilters(searchParams = {}, keys = FILTER_KEYS) {
   const filters = {};
-  for (const key of FILTER_KEYS) {
+  for (const key of keys) {
     const value = String(first(searchParams[key]) ?? '').trim();
     if (value) filters[key] = value;
   }
@@ -35,6 +38,7 @@ export function getPaging(searchParams = {}) {
   };
 }
 
+// Despite the name it works for every paginated endpoint: filters + limit + offset.
 export function buildTodoQuery(filters, { limit, offset }) {
   const query = new URLSearchParams(filters);
   query.set('limit', String(limit));

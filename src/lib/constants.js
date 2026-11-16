@@ -20,3 +20,14 @@ export const ASSIGNMENT_STATUS_LABELS = {
 };
 
 export const PRIORITY_LABELS = { 1: 'Low', 2: 'Medium', 3: 'High' };
+
+export const NOTIFICATION_TYPE_LABELS = {
+  assigned: 'Assigned',
+  accepted: 'Accepted',
+  rejected: 'Rejected',
+  role_changed: 'Role changed',
+};
+
+export const NOTIFICATION_POLL_INTERVAL_MS = 30000;
+export const NOTIFICATION_MAX_BACKOFF_MS = 5 * 60 * 1000;
+export const NOTIFICATION_RECENT_DAYS = 7;
