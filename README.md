@@ -67,6 +67,7 @@ Teams: `<team 1>`, `<team 2>`. New registrations are `member` with no team until
 | `/admin/users` | Admin | Users, roles, team membership |
 | `/admin/users/[id]` | Admin (read-only) | All todos of a user |
 | `/admin/todos/[id]` | Admin (read-only) | Todo details without any action |
+| `/admin/categories` | Admin | Create, rename and delete categories |
 
 ## API map (path after the backend `/api`)
 
@@ -81,6 +82,7 @@ Teams: `<team 1>`, `<team 2>`. New registrations are `member` with no team until
 | Dashboard | `GET /admin/dashboard/overview`, `/users`, `/teams`, `/activity` |
 | Admin read-only | `GET /admin/users/{id}`, `GET /admin/users/{id}/todos`, `GET /admin/todos/{id}` |
 | Admin teams | `GET /teams`, `POST /admin/teams`, `PATCH /admin/teams/{id}`, `DELETE /admin/teams/{id}`, `GET /admin/dashboard/teams` (counts) |
+| Admin categories | `GET /categories`, `POST /categories`, `PATCH /categories/{id}`, `DELETE /categories/{id}` |
 
 ## Folder structure
 
@@ -114,6 +116,4 @@ __tests__          Jest tests
 - The refresh cookie lifetime falls back to 7 days if the token has no readable `exp`.
 - The assign panel is shown to the assigner while the assignment is not accepted. The backend decides if re-assigning is really allowed and the UI shows its message.
 - Notification polling is every 30 seconds, so a new notification can take up to 30 seconds to show (or less after an action in the app).
-- Admin category management has an API but no UI here.
 - Todo lists use offset pagination. The list can shift if todos change while a user pages through it.
-- Global `error.js` and `loading.js` are not part of this repository's scope.
