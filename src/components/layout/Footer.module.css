@@ -1,0 +1,99 @@
+/* ---------- Full footer (home page) ---------- */
+.footer {
+  position: relative;
+  margin-top: var(--space-8);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* A thin gradient line on top gives the footer some character. */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: var(--space-7) var(--space-4) var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.brand {
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.tagline {
+  max-width: 28ch;
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.heading {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.list a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Compact footer (inside the app) ---------- */
+.compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
