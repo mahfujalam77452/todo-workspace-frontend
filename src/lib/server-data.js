@@ -37,13 +37,18 @@ export async function getTeamMembers(teamId) {
 
 // Teams are fixed (seeded), so they are cached for 1 hour.
 export async function getTeams() {
-  const { data } = await safeBackendFetch('/teams', { next: { revalidate: 3600 } });
+  const { data } = await safeBackendFetch('/teams', TEAMS_FETCH_OPTIONS);
   return data;
 }
+// Cache tags. revalidateTag clears the cache when an admin changes a team.
+export const TEAMS_TAG = 'teams';
+export const DASHBOARD_TAG = 'dashboard';
 
+// Same options everywhere, so the team list is one cache entry (1 hour).
+export const TEAMS_FETCH_OPTIONS = { next: { revalidate: 30, tags: [TEAMS_TAG] } };
 
 // Dashboard data is cached for 30 seconds.
-const DASHBOARD_CACHE = { revalidate: 30 };
+const DASHBOARD_CACHE = { revalidate: 30, tags: [DASHBOARD_TAG] };
 
 // React.cache: the overview is used by two sections of the page, but it is requested only once.
 export const getDashboardOverview = cache(() =>

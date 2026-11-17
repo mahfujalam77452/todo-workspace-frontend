@@ -6,7 +6,7 @@ import UsersFilters from '@/components/admin/UsersFilters';
 import UsersSection from '@/components/admin/UsersSection';
 import UsersSkeleton from '@/components/admin/UsersSkeleton';
 import styles from '@/components/admin/Admin.module.css';
-
+import ButtonLink from '@/components/ui/ButtonLink';
 export const metadata = { title: 'Manage users' };
 
 export default async function AdminUsersPage({ searchParams }) {
@@ -22,6 +22,7 @@ export default async function AdminUsersPage({ searchParams }) {
     <>
       <div className={styles.pageHeader}>
         <h1>Manage users</h1>
+        <ButtonLink href="/admin/teams" variant="secondary">Manage teams</ButtonLink>
       </div>
 
       <UsersFilters teams={teams} />

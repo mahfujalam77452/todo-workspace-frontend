@@ -31,3 +31,22 @@ export function validateTodo({ title, description }) {
   if (description.length > 10000) errors.description = 'Description must be 10,000 characters or fewer.';
   return errors;
 }
+
+function hasControlCharacter(text) {
+  return [...text].some((character) => {
+    const code = character.charCodeAt(0);
+    return code < 32 || code === 127;
+  });
+}
+
+// Same rules as the backend: not blank, 100 characters at most, no control characters.
+export function validateTeam({ name }) {
+  const errors = {};
+  const trimmed = name.trim();
+
+  if (!trimmed) errors.name = 'Enter a team name.';
+  else if (trimmed.length > 100) errors.name = 'Team name must be 100 characters or fewer.';
+  else if (hasControlCharacter(trimmed)) errors.name = 'Team name cannot contain control characters.';
+
+  return errors;
+}
