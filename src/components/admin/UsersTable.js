@@ -8,6 +8,7 @@ import { revalidateTeamMembers } from '@/lib/revalidate-actions';
 import RoleSelect from './RoleSelect';
 import TeamSelect from './TeamSelect';
 import styles from './Admin.module.css';
+import Link from 'next/link';
 
 function UserRow({ user, teams, isSelf }) {
   const { run, loading, error } = useAction();
@@ -47,7 +48,7 @@ function UserRow({ user, teams, isSelf }) {
   return (
     <tr>
       <td data-label="Name">
-        {user.name}
+        <Link href={`/admin/users/${user.id}`}>{user.name}</Link>
         {isSelf && ' (you)'}
       </td>
       <td data-label="Email">{user.email}</td>
