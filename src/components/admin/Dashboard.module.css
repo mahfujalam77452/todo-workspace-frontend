@@ -1,0 +1,265 @@
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* ---------- Summary cards ---------- */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.statCard {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.statValue {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ---------- Panels ---------- */
+.twoCols {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .twoCols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Completion ring (conic-gradient) ---------- */
+.ringWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ring {
+  --value: 0;
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  height: 9rem;
+  background: conic-gradient(var(--color-success) calc(var(--value) * 1%), var(--color-surface-muted) 0);
+  border-radius: var(--radius-full);
+}
+
+.ringInner {
+  display: grid;
+  place-items: center;
+  width: 72%;
+  height: 72%;
+  background: var(--color-surface);
+  border-radius: var(--radius-full);
+}
+
+.ringValue {
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+/* ---------- Donut chart (SVG) ---------- */
+.donut {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.donut svg {
+  width: 9rem;
+  height: 9rem;
+}
+
+.donutOpen {
+  stroke: var(--color-warning);
+}
+
+.donutDone {
+  stroke: var(--color-success);
+}
+
+.donutText {
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--color-text);
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+}
+
+.swatchDone { background: var(--color-success); }
+.swatchOpen { background: var(--color-warning); }
+
+/* ---------- Team bars ---------- */
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.barHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.barLabel {
+  font-weight: 600;
+}
+
+.barText {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.barTrack {
+  height: 0.75rem;
+  margin-top: var(--space-2);
+  overflow: hidden;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-full);
+}
+
+.barFill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: inherit;
+}
+
+/* ---------- Ratio bar inside the user table ---------- */
+.ratio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 8rem;
+}
+
+.ratioTrack {
+  flex: 1;
+  height: 0.5rem;
+  overflow: hidden;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-full);
+}
+
+.ratioFill {
+  height: 100%;
+  background: var(--color-success);
+}
+
+.ratioFillDanger {
+  background: var(--color-danger);
+}
+
+/* ---------- Bottlenecks ---------- */
+.bottleneckList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.bottleneckItem dt {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.bottleneckItem dd {
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+.attention {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+.clear {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-success);
+}
+
+.rejectionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Activity feed ---------- */
+.feed {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.feedItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.feedItem:last-child {
+  border-bottom: 0;
+}
+
+.feedMeta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
