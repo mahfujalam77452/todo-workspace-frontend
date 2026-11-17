@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import MobileMenu from './MobileMenu';
+import Footer from './Footer';
 import styles from './Layout.module.css';
 
 export default function AppShell({ children }) {
@@ -16,6 +17,7 @@ export default function AppShell({ children }) {
         <Sidebar />
         <main className={styles.main}>{children}</main>
       </div>
+      <Footer variant="app" />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
   );
