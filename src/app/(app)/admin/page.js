@@ -27,8 +27,7 @@ export default async function AdminDashboardPage({ searchParams }) {
       <div className={adminStyles.pageHeader}>
         <h1>Workspace dashboard</h1>
         <div className={adminStyles.rowActions}>
-          <ButtonLink href="/admin/users" variant="secondary">Manage users</ButtonLink>
-          <ButtonLink href="/admin/teams" variant="secondary">Manage teams</ButtonLink>
+          
         </div>
       </div>
 

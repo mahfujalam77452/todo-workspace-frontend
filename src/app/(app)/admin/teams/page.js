@@ -17,7 +17,7 @@ export default async function AdminTeamsPage() {
       <div className={styles.pageHeader}>
         <h1>Manage teams</h1>
         <div className={styles.rowActions}>
-          <ButtonLink href="/admin/users" variant="secondary">Manage users</ButtonLink>
+          
           <CreateTeamModal />
         </div>
       </div>

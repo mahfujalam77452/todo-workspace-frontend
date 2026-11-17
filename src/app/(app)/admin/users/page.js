@@ -22,7 +22,7 @@ export default async function AdminUsersPage({ searchParams }) {
     <>
       <div className={styles.pageHeader}>
         <h1>Manage users</h1>
-        <ButtonLink href="/admin/teams" variant="secondary">Manage teams</ButtonLink>
+        
       </div>
 
       <UsersFilters teams={teams} />
