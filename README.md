@@ -63,6 +63,7 @@ Teams: `<team 1>`, `<team 2>`. New registrations are `member` with no team until
 | `/todos/[id]` | Assigner or assignee | Details. Assignee edits, accepts, rejects. Assigner views, assigns, deletes |
 | `/notifications` | Logged-in | List, unread filter, mark read, mark all read |
 | `/admin` | Admin | Dashboard (bonus) |
+| `/admin/teams` | Admin | Create, rename and delete teams |
 | `/admin/users` | Admin | Users, roles, team membership |
 | `/admin/users/[id]` | Admin (read-only) | All todos of a user |
 | `/admin/todos/[id]` | Admin (read-only) | Todo details without any action |
@@ -79,6 +80,7 @@ Teams: `<team 1>`, `<team 2>`. New registrations are `member` with no team until
 | Admin users | `GET /admin/users`, `PATCH /admin/users/{id}`, `GET /teams` |
 | Dashboard | `GET /admin/dashboard/overview`, `/users`, `/teams`, `/activity` |
 | Admin read-only | `GET /admin/users/{id}`, `GET /admin/users/{id}/todos`, `GET /admin/todos/{id}` |
+| Admin teams | `GET /teams`, `POST /admin/teams`, `PATCH /admin/teams/{id}`, `DELETE /admin/teams/{id}`, `GET /admin/dashboard/teams` (counts) |
 
 ## Folder structure
 
@@ -104,6 +106,7 @@ __tests__          Jest tests
 - **Charts** are CSS (`conic-gradient`, bars) and SVG. No chart library.
 - **Dates** are formatted in the browser (`LocalTime`) so the user always sees their own time zone.
 - **Status words:** todo status (Not started / In progress / Completed) and assignment status (Awaiting response / Accepted / Rejected) use different badges and different words.
+- **Team changes clear the caches:** after an admin creates, renames or deletes a team, a Server Action calls `revalidateTag` for the team list, the dashboard and the team member lists, so pickers and tables show the change at once.
 
 ## Limitations
 
