@@ -5,6 +5,9 @@
   gap: var(--space-5);
   min-height: 100vh;
   padding: var(--space-6) var(--space-4);
+  background:
+    radial-gradient(35rem 24rem at 100% 0%, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent),
+    radial-gradient(30rem 22rem at 0% 100%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
 }
 
 .brand {
@@ -21,7 +24,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (min-width: 480px) {

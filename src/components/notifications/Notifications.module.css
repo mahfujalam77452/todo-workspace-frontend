@@ -24,6 +24,12 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  border-color: #b8c2d6;
 }
 
 .tabActive {
@@ -61,11 +67,16 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 a.item:hover,
 button.item:hover {
   background: var(--color-surface-muted);
+  border-color: #c9d2e3;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 button.item {

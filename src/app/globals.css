@@ -22,6 +22,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+}
+
 h1, h2, h3, h4 {
   line-height: 1.2;
   font-weight: 700;
@@ -40,13 +45,20 @@ a {
   color: var(--color-primary);
 }
 
+button,
+input,
+select,
+textarea {
+  accent-color: var(--color-primary);
+}
+
 button, input, select, textarea {
   font: inherit;
   color: inherit;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
   outline-offset: 2px;
 }
 

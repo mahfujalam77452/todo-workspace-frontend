@@ -42,8 +42,14 @@ export default function TodoForm({
 
   // The date is converted in the browser, so the server and the browser never disagree about the time zone.
   useEffect(() => {
-    setValues((current) => ({ ...current, dueDate: toDateTimeLocal(todo?.due_date) }));
-  }, [todo?.due_date]);
+    const existingDueDate = toDateTimeLocal(todo?.due_date);
+    setValues((current) => ({
+      ...current,
+      dueDate:
+        existingDueDate ||
+        (mode === 'create' ? current.dueDate || toDateTimeLocal(new Date()) : ''),
+    }));
+  }, [mode, todo?.due_date]);
 
   const apiErrors = getFieldErrors(error);
   const hasFieldErrors = Object.keys(apiErrors).length > 0;
@@ -99,7 +105,7 @@ export default function TodoForm({
         />
       </FormField>
 
-      <FormField label="Description" htmlFor="todo-description" error={fieldError('description')}>
+      <FormField label="Description (optional)" htmlFor="todo-description" error={fieldError('description')}>
         <Textarea
           id="todo-description"
           name="description"
@@ -124,7 +130,7 @@ export default function TodoForm({
           </Select>
         </FormField>
 
-        <FormField label="Category" htmlFor="todo-category" error={fieldError('category')}>
+        <FormField label="Category (optional)" htmlFor="todo-category" error={fieldError('category')}>
           <Select
             id="todo-category"
             name="category"
@@ -147,6 +153,7 @@ export default function TodoForm({
           type="datetime-local"
           value={values.dueDate}
           onChange={handleChange}
+          onClick={(event) => event.currentTarget.showPicker?.()}
           error={fieldError('dueDate', 'due_date')}
         />
       </FormField>

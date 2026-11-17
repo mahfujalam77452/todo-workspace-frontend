@@ -8,11 +8,16 @@
   margin-bottom: var(--space-4);
 }
 
+.pageHeader h1 {
+  letter-spacing: -0.03em;
+}
+
 .tabs {
   display: flex;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
   overflow-x: auto;
+  padding-bottom: 2px;
 }
 
 .tab {
@@ -27,6 +32,12 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  border-color: #b8c2d6;
 }
 
 .tabActive {
@@ -46,6 +57,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .checkbox {
@@ -84,11 +96,14 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: box-shadow 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover {
   box-shadow: var(--shadow-md);
+  border-color: #c9d2e3;
+  transform: translateY(-2px);
 }
 
 .cardLink {
@@ -202,6 +217,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .panel > * {

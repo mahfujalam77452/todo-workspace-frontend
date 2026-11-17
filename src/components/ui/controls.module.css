@@ -6,7 +6,8 @@
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 .control:focus-visible {
@@ -18,6 +19,10 @@
 .control:disabled {
   background: var(--color-surface-muted);
   cursor: not-allowed;
+}
+
+.control:hover:not(:disabled) {
+  border-color: #b8c2d6;
 }
 
 .invalid {
