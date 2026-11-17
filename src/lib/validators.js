@@ -50,3 +50,14 @@ export function validateTeam({ name }) {
 
   return errors;
 }
+// Same rules as the backend: not blank, 50 characters at most, no control characters.
+export function validateCategory({ name }) {
+  const errors = {};
+  const trimmed = name.trim();
+
+  if (!trimmed) errors.name = 'Enter a category name.';
+  else if (trimmed.length > 50) errors.name = 'Category name must be 50 characters or fewer.';
+  else if (hasControlCharacter(trimmed)) errors.name = 'Category name cannot contain control characters.';
+
+  return errors;
+}

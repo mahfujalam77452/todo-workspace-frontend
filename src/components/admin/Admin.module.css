@@ -174,3 +174,35 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+/* ---------- Admin sub navigation ---------- */
+.subNav {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  overflow-x: auto;
+}
+
+.subLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-4);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.subLink:hover {
+  background: var(--color-surface-muted);
+}
+
+.subLinkActive {
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}

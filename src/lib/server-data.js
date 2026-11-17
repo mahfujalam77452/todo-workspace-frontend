@@ -20,9 +20,14 @@ export async function safeBackendFetch(path, options) {
   }
 }
 
-// Categories rarely change, so they are cached for 5 minutes. Returns null if the request fails.
+export const CATEGORIES_TAG = 'categories';
+
+// Same options everywhere, so the category list is one cache entry (5 minutes).
+// Cleared with revalidateTag(CATEGORIES_TAG) when an admin changes a category.
+export const CATEGORIES_FETCH_OPTIONS = { next: { revalidate: 300, tags: [CATEGORIES_TAG] } };
+
 export async function getCategories() {
-  const { data } = await safeBackendFetch('/categories', { next: { revalidate: 300 } });
+  const { data } = await safeBackendFetch('/categories', CATEGORIES_FETCH_OPTIONS);
   return data;
 }
 
