@@ -59,7 +59,7 @@ function TeamRow({ team }) {
 
   return (
     <tr>
-      <td data-label="Team">{team.name}</td>
+      <td data-label="Team"><Link href={`/admin/teams/${team.id}`}>{team.name}</Link></td>
       <td data-label="Members">
         {team.member_count === null ? (
           '—'

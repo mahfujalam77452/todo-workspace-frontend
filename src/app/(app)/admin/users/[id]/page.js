@@ -15,14 +15,24 @@ export default async function AdminUserPage({ params, searchParams }) {
   const { id } = await params;
   if (!/^\d+$/.test(id)) notFound();
 
-  const { show } = pickFilters(await searchParams, ['show']);
+  const filters = pickFilters(await searchParams, ['show', 'scrum', 'category', 'from', 'to', 'relation']);
+  const { show = '', scrum = '', category = '', from = '', to = '', relation = '' } = filters;
   const safeShow = ['assigned', 'created'].includes(show) ? show : '';
+  const safeRelation = ['assigned', 'created'].includes(relation) ? relation : safeShow;
 
   return (
     <>
       <Link href="/admin/users" className={styles.back}>&larr; Back to users</Link>
-      <Suspense key={safeShow} fallback={<TodoDetailSkeleton />}>
-        <UserTodosSection id={id} show={safeShow} />
+      <Suspense key={JSON.stringify({ safeShow, scrum, category, from, to, safeRelation })} fallback={<TodoDetailSkeleton />}>
+        <UserTodosSection
+          id={id}
+          show={safeShow}
+          scrum={scrum}
+          category={category}
+          from={from}
+          to={to}
+          relation={safeRelation}
+        />
       </Suspense>
     </>
   );

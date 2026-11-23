@@ -10,6 +10,7 @@ import OverviewSection from '@/components/admin/OverviewSection';
 import PanelSkeleton from '@/components/admin/PanelSkeleton';
 import TeamsSection from '@/components/admin/TeamsSection';
 import UserActivitySection from '@/components/admin/UserActivitySection';
+import CompletionHeatmap from '@/components/admin/CompletionHeatmap';
 import adminStyles from '@/components/admin/Admin.module.css';
 import styles from '@/components/admin/Dashboard.module.css';
 
@@ -34,6 +35,12 @@ export default async function AdminDashboardPage({ searchParams }) {
       <Suspense fallback={<PanelSkeleton height="16rem" label="Loading overview" />}>
         <OverviewSection />
       </Suspense>
+
+      <div className={styles.dashboardSection}>
+        <Suspense fallback={<PanelSkeleton label="Loading completion activity" />}>
+          <CompletionHeatmap />
+        </Suspense>
+      </div>
 
       <div className={styles.twoCols}>
         <Suspense fallback={<PanelSkeleton label="Loading bottlenecks" />}>

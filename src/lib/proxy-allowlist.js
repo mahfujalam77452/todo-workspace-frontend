@@ -24,6 +24,12 @@ const RULES = [
   { pattern: /^\/admin\/users\/\d+\/todos$/, methods: ['GET'] },
   { pattern: /^\/admin\/todos\/\d+$/, methods: ['GET'] },
   { pattern: /^\/admin\/dashboard\/(overview|users|teams|activity)$/, methods: ['GET'] },
+  { pattern: /^\/admin\/scrums$/, methods: ['GET', 'POST'] },
+  { pattern: /^\/admin\/scrums\/\d+\/start$/, methods: ['POST'] },
+  { pattern: /^\/admin\/scrums\/\d+\/end$/, methods: ['POST'] },
+  { pattern: /^\/admin\/dashboard\/settings$/, methods: ['GET', 'PATCH'] },
+  { pattern: /^\/admin\/dashboard\/heatmap$/, methods: ['GET'] },
+  { pattern: /^\/admin\/dashboard\/teams\/\d+\/analytics$/, methods: ['GET'] },
 ];
 
 export function isAllowed(path, method) {

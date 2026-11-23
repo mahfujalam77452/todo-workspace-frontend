@@ -12,6 +12,7 @@ export default async function OverviewSection() {
 
   return (
     <>
+      <p className={styles.period}>Reporting period: last {data.bottlenecks?.reporting_period?.days ?? 14} days</p>
       <div className={styles.statGrid}>
         <StatCard label="Users" value={data.users} />
         <StatCard label="Teams" value={data.teams} />

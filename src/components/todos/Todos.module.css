@@ -60,6 +60,37 @@
   box-shadow: var(--shadow-sm);
 }
 
+.historyFilters {
+  grid-template-columns: repeat(4, minmax(9rem, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: var(--space-5);
+  background:
+    linear-gradient(180deg, var(--color-surface), var(--color-surface-muted));
+  border-radius: var(--radius-lg);
+}
+
+.historyFilters select,
+.historyFilters input {
+  min-width: 0;
+  height: 2.75rem;
+  background-color: var(--color-surface);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 900px) {
+  .historyFilters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .historyFilters {
+    grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
+}
+
 .checkbox {
   display: flex;
   align-items: center;
@@ -132,6 +163,41 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.statCard {
+  display: flex;
+  min-height: 6.25rem;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: linear-gradient(145deg, var(--color-surface), var(--color-surface-muted));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.statCard dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.statCard dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1;
 }
 
 .people {
