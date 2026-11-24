@@ -8,6 +8,12 @@ export const ROLES = { MEMBER: 'member', PM: 'pm', ADMIN: 'admin' };
 
 export const ROLE_LABELS = { member: 'Member', pm: 'Project Manager', admin: 'Admin' };
 
+export const TODO_STATUS_LABELS = {
+  pending: 'Pending',
+  in_progress: 'In progress',
+  completed: 'Completed',
+};
+
 export const ASSIGNMENT_STATUS_LABELS = {
   pending: 'Awaiting response',
   accepted: 'Accepted',
