@@ -32,6 +32,12 @@ export async function requireAdmin() {
   return user;
 }
 
+export async function requirePM() {
+  const user = await requireUser();
+  if (user.role !== ROLES.PM) redirect('/todos');
+  return user;
+}
+
 export async function redirectIfAuthenticated() {
   const user = await getSession();
   if (user) redirect('/todos');

@@ -2,6 +2,7 @@
 // Auth endpoints are not listed on purpose: they have their own route handlers.
 // The backend still enforces every permission. This list only reduces what is exposed.
 const RULES = [
+  { pattern: /^\/pm\/bulk-emails$/, methods: ['GET', 'POST'] },
   { pattern: /^\/categories$/, methods: ['GET', 'POST'] },
   { pattern: /^\/categories\/\d+$/, methods: ['PATCH', 'DELETE'] },
   { pattern: /^\/admin\/teams$/, methods: ['POST'] },

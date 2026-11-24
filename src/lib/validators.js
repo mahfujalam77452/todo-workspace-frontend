@@ -61,3 +61,20 @@ export function validateCategory({ name }) {
 
   return errors;
 }
+
+
+// Same rules as the backend: subject 1-150 chars on one line, message 1-5000 chars.
+export function validateBulkEmail({ subject, message }) {
+  const errors = {};
+  const trimmedSubject = subject.trim();
+  const trimmedMessage = message.trim();
+
+  if (!trimmedSubject) errors.subject = 'Enter a subject.';
+  else if (trimmedSubject.length > 150) errors.subject = 'Subject must be 150 characters or fewer.';
+  else if (hasControlCharacter(trimmedSubject)) errors.subject = 'Subject cannot contain line breaks or control characters.';
+
+  if (!trimmedMessage) errors.message = 'Enter a message.';
+  else if (trimmedMessage.length > 5000) errors.message = 'Message must be 5,000 characters or fewer.';
+
+  return errors;
+}

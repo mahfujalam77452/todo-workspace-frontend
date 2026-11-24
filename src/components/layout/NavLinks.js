@@ -6,12 +6,13 @@ import { useAuth } from '@/context/AuthContext';
 import styles from './Layout.module.css';
 
 export default function NavLinks({ onNavigate }) {
-  const { isAdmin } = useAuth();
+  const { isAdmin, isPM } = useAuth();
   const pathname = usePathname();
 
   const items = [
     { href: '/todos', label: 'Todos' },
     { href: '/notifications', label: 'Notifications' },
+    ...(isPM ? [{ href: '/pm/team-mail', label: 'Team mail' }] : []),
     // Hiding the link is only for the UI. The backend still blocks non-admins.
     ...(isAdmin ? [{ href: '/admin', label: 'Admin' }] : []),
   ];

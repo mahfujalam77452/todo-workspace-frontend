@@ -5,7 +5,7 @@ import { REFRESH_MARGIN_SECONDS } from '@/lib/constants';
 
 // Runs only on protected pages and on the proxy (/api/auth/* is excluded below).
 export const config = {
-  matcher: ['/todos/:path*', '/notifications/:path*', '/admin/:path*', '/api/((?!auth).*)'],
+  matcher: ['/todos/:path*', '/notifications/:path*', '/admin/:path*', '/pm/:path*', '/api/((?!auth).*)'],
 };
 
 async function refreshTokens(refresh) {
