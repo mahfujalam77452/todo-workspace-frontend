@@ -8,7 +8,7 @@ import UserHistoryFilters from '@/components/admin/UserHistoryFilters';
 import todoStyles from '@/components/todos/Todos.module.css';
 import { getErrorMessage } from '@/lib/errors';
 import { safeBackendFetch } from '@/lib/server-data';
-
+import { ROLE_LABELS } from '@/lib/constants';
 const TABS = [
   { label: 'All', value: '' },
   { label: 'Assigned to this user', value: 'assigned' },
@@ -47,7 +47,9 @@ export default async function UserTodosSection({ id, show, scrum, category, from
         <h1 className={todoStyles.detailTitle}>{user.name}</h1>
         <p className={todoStyles.meta}>{user.email}</p>
         <div className={todoStyles.badges}>
-          <Badge tone={user.role === 'admin' ? 'info' : 'neutral'}>{user.role === 'admin' ? 'Admin' : 'Member'}</Badge>
+          <Badge tone={user.role === 'admin' ? 'info' : user.role === 'pm' ? 'success' : 'neutral'}>
+              {ROLE_LABELS[user.role] ?? 'Member'}
+          </Badge>
           <Badge>{user.team ? user.team.name : 'No team'}</Badge>
           <Badge>Created: {user.created_count}</Badge>
           <Badge>Assigned: {user.assigned_count}</Badge>

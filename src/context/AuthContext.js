@@ -10,7 +10,14 @@ const AuthContext = createContext(null);
 export function AuthProvider({ initialUser, children }) {
   const [user, setUser] = useState(initialUser);
 
-  const value = { user, setUser, isAdmin: user?.role === ROLES.ADMIN };
+  const value = {
+  user,
+  setUser,
+  isAdmin: user?.role === ROLES.ADMIN,
+  isPM: user?.role === ROLES.PM,
+   };
+
+   
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

@@ -57,9 +57,10 @@ export default function UsersFilters({ teams }) {
           value={searchParams.get('role') ?? ''}
           onChange={(event) => updateParams({ role: event.target.value })}
         >
-          <option value="">Any role</option>
-          <option value="member">Member</option>
-          <option value="admin">Admin</option>
+           <option value="">Any role</option>
+           <option value="member">Member</option>
+           <option value="pm">Project Manager</option>
+           <option value="admin">Admin</option>
         </Select>
       </FormField>
 

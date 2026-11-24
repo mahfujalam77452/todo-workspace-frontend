@@ -15,8 +15,9 @@ export default function RoleSelect({ userId, userName, value, disabled, onChange
         aria-describedby={disabled ? `${id}-note` : undefined}
         onChange={(event) => onChange(event.target.value)}
       >
-        <option value="member">Member</option>
-        <option value="admin">Admin</option>
+         <option value="member">Member</option>
+         <option value="pm">Project Manager</option>
+         <option value="admin">Admin</option>
       </Select>
       {disabled && (
         <span id={`${id}-note`} className={styles.hint}>You cannot change your own role.</span>

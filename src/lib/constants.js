@@ -4,14 +4,9 @@ export const REFRESH_MARGIN_SECONDS = 30; // refresh the access token this long 
 export const DEFAULT_PAGE_SIZE = 10;
 export const MAX_PAGE_SIZE = 100;
 
-export const ROLES = { MEMBER: 'member', ADMIN: 'admin' };
+export const ROLES = { MEMBER: 'member', PM: 'pm', ADMIN: 'admin' };
 
-// Todo status and assignment status are two different things. They use different words on purpose.
-export const TODO_STATUS_LABELS = {
-  pending: 'Not started',
-  in_progress: 'In progress',
-  completed: 'Completed',
-};
+export const ROLE_LABELS = { member: 'Member', pm: 'Project Manager', admin: 'Admin' };
 
 export const ASSIGNMENT_STATUS_LABELS = {
   pending: 'Awaiting response',
